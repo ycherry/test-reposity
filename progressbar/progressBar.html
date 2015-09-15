@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>制作进度条的两种方法</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+body{font-size:12px;}h1{font-size:15px;}
+.wrap{
+    font-size: 12px;
+    margin:40px auto;
+    width:400px;
+}
+/*进度条样式*/
+.progressbar_1{
+    background-color:#eee;
+    color:#222;
+    height:16px;
+    width:150px;
+    border:1px solid #bbb;
+}
+.progressbar_1 .bar {
+    background-color:#6CAF00;
+    height:16px;
+    width:0;
+}
+/*绝对定位*/
+.progressbar_2{
+    background-color:#eee;
+    color:#222;
+    height:16px;
+    width:150px;
+    border:1px solid #bbb;
+    text-align:center;
+    position:relative;
+}
+.progressbar_2 .bar {
+    background-color:#6CAF00;
+    height:16px;
+    width:0;
+    position:absolute;
+    left:0;
+    top:0;
+}
+.progressbar_2 .text {
+    height:16px;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    line-height:16px;
+}
+/*绝对定位 + z-index */
+.progressbar_3{
+    background-color:#eee;
+    color:#222;
+    height:16px;
+    width:150px;
+    border:1px solid #bbb;
+    text-align:center;
+    position:relative;
+}
+.progressbar_3 .bar {
+    background-color:#6CAF00;
+    height:16px;
+    width:0;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:10;
+}
+.progressbar_3 .text {
+    height:16px;
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    line-height:16px;
+
+    z-index:100;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>2，给进度条增加文字显示</h1>
+
+
+
+    一个进度条需要包含对应的进度文字显示，本例中，我希望文字显示在进度条的中间。
+    接下来，我们在进度条元素内增加一个显示 文字的div。
+
+
+    很显然，直接添加div后，div会占据原先绿色进度条的位置。看下面例子：
+
+
+
+
+    <div class="progressbar_1">
+        <div >50%</div>
+        <div class="bar" style="width: 50%;"></div>
+    </div>
+
+
+
+    那么有什么办法使得文字 和 绿色进度条 同时显示在 一起呢？
+
+
+    估计你也想到了，那就是绝对定位。通过对父元素添加相对定位，然后给子元素添加绝对定位，设置子元素的左边距和上边距都为0。
+
+
+    看下面的例子：
+
+
+
+    <div class="progressbar_2">
+        <div class="text">50%</div>
+        <div class="bar" style="width: 50%;"></div>
+    </div>
+
+
+
+    这时你会发现文字被遮盖了，相信你第一时间就会想到用 z-index 去设置他们的层级关系。
+
+    对，我也选择的是它。通过给他们设置不同的z-index值来确定层级关系，值越大越显示在上面。看下面例子：
+
+
+    <div class="progressbar_3">
+        <div class="text">50%</div>
+        <div class="bar" style="width: 50%;"></div>
+    </div>
+
+
+
+    <div class="progressbar_3">
+        <div class="text">80%</div>
+        <div class="bar" style="width: 80%;"></div>
+    </div>
+
+
+
+    <div class="progressbar_3">
+        <div class="text">100%</div>
+        <div class="bar" style="width: 100%;"></div>
+    </div>
+
+
+
+    这是第一种方式，也是目前最为流行的 制作进度条的方式。
+
+    他的原理就是采用 相对定位和绝对定位，然后通过背景不同来控制进度。
+    接下来我们看第二种方式制作进度条。
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

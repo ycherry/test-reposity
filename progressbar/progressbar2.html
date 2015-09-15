@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ProgressBar</title>
+    <link rel="stylesheet" type="text/less" href="progressBar2.less">
+    <script type="text/javascript" src="less.js"></script>
+</head>
+
+<body>
+   <!--  <div class="div-container1">
+        <div class="progressbar"></div>
+    </div>
+    <div class="div-container2">
+        <div class="font2">50%</div>
+        <div class="progressbar2"></div>
+    </div> -->
+    <div class="div-container" ng-controller="myCtrl">
+        <div class="font">{{myWidthNumber}}</div>
+        <div class="progressbar" ng-style="myWidth"></div>
+    </div>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="progressbar2.js"></script>
+</body>
+
+</html>
