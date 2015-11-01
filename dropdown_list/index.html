@@ -1,0 +1,43 @@
+<html ng-app="mySelectModule">
+
+<head>
+    <meta charset="utf-8">
+    <link href="/dropdown_list/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" media="screen" />
+    <link href="/dropdown_list/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" media="screen" />
+    <link href="/dropdown_list/bootstrap.css" rel="stylesheet" media="screen" />
+</head>
+
+<body ng-controller="mySelectCtrl">
+    <!-- 代码片断 -->
+    <form class="" method="GET">
+      <select  ng-model="selectOption.id" class="selectpicker" title="select one" data-ng-options="option for option in selectOption.value" ng-change="change()">
+         <option value="" data-hidden="true">please select</option> 
+        </select> 
+        <select  class="selectpicker" title="select one">
+            <option value="one">one</option>
+            <option value="two">two</option>
+            <option value="three">three</option>
+            <option value="four">four</option>
+        </select> 
+        <select  class="selectpicker">
+        		<option data-hidden="true">Choose One</option>
+        		  <option value="one">one</option> 
+            <option value="two">two</option>
+            <option value="three">three</option>
+            <option value="four">four</option>
+        </select>
+         <select  class="selectpicker" title="select one">
+				<option ng-repeat="option in options" value="option">{{option}}</option>
+        </select>
+    </form>
+    <!-- 代码片段 -->
+    <script type="text/javascript">
+    </script>
+    <script src="/dropdown_list/js/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/dropdown_list/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="/dropdown_list/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/dropdown_list/js/angular.js"></script>
+    <script type="text/javascript" src="/dropdown_list/index.js"></script>
+</body>
+
+</html>
