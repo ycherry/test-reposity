@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="angular.js"></script>
+    <script src="addwidgetcontroller.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div class="form-group" ng-controller="myCtrl">
+        <div class="col-md-10">
+            <div ng-repeat="text in change.text">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="col-md-1">
+                            <label for="text{{$index+1}}">文本框{{$index+1}}</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control"  id="text{{$index+1}}" name="text{{$index+1}}" />
+                        </div>
+                        <div class="col-md-2 img-link">
+                            <a href="" ng-click="change.add($index)">
+                                <img src="plus.png" alt="plus" width="20px" height="20px" />
+                            </a>
+                            <a href="" ng-click="change.remove($index)"  ng-show="change.canRemove">
+                                <img src="minus.png" alt="minus" width="20px" height="20px" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

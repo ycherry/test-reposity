@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="bootstrap.css">
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="angular.js"></script>
+        <script src="SendSafeMessageController.js"></script>
+    </head>
+    <body ng-app="ftitApp">
+        <div class="form-group" ng-controller="SendSafeMessageController">
+            <label class="col-md-2 control-label">答复内容:</label>
+            <div class="col-md-10">
+                <div ng-repeat="reply in fchat.replies">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-1">
+                                <label for="reply{{$index + 1}}">回答{{$index + 1}}</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" ng-model="reply.value"
+                                       id="reply{{$index + 1}}" name="reply{{$index + 1}}" />
+                            </div>
+                            <div class="col-md-2 img-link">
+                                <a href="" ng-click="fchat.incrReply($index)">
+                                    <img src="plus.png" alt="plus" width="20px" height="20px" />
+                                </a>
+                                <a href="" ng-click="fchat.decrReply($index)" ng-show="fchat.canDescReply">
+                                    <img src="minus.png" alt="minus" width="20px" height="20px"/>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="replies" name="replies" value="{{fchat.combineReplies()}}" />
+            </div>
+</div>
+    </body>
+</html>
