@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assessment Stars</title>
+    <link rel="stylesheet" type="text/css" href="assessmentStars.less">
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css.map">
+    <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
+</head>
+
+<body ng-controller="myCtrl">
+     <input type="text" ng-model="sNumber">
+     <div>{{sNumber}}</div>
+    <stars star-number="sNumber"></stars>
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="angular/angular-route.js"></script>
+    <script type="text/javascript" src="angular/angular-resource.js"></script>
+    <script type="text/javascript" src="assessmentStars.js"></script>
+
+</body>
+
+</html>
