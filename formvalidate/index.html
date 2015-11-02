@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="/formvalidate/js/angular.js"></script>
+    <script type="text/javascript" src="/formvalidate/css/less.js"></script>
+    <link rel="stylesheet" type="text/css" href="/formvalidate/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/formvalidate/css/bootstrap.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myAppCtrl">
+    <form name="testForm" novalidate ng-submit="signupForm()">
+        <legend>Form validation</legend>
+        <div class="form-group has-success has-feedback">
+            <label>testLength</label>
+            <input type="text" placeholder="at least 5 characters" name="testLength" ng-model="form.length" ng-minlength=5 ng-maxlength=10 class="form-control" required />
+            <!--ng-model is necessary or validation can not be triggered-->
+            <div class="help-block" ng-show="testForm.testLength.$dirty&&testForm.testLength.$invalid">
+                <small class="help-block" ng-show="testForm.testLength.$error.required">It can not be empty</small>
+                <small class="help-block" ng-show="testForm.testLength.$error.maxlength">Input more than 10 characters</small>
+                <small class="help-block" ng-show="testForm.testLength.$error.minlength">Input at least 5 characters</small>
+            </div>
+        </div>
+        <div class="form-group has-success has-feedback">
+            <label>testEmail</label>
+            <input type="email" placeholder="enter valid email"name="testEmail" ng-model="form.email" class="form-control" required />
+            <div class="help-block" ng-show="testForm.testEmail.$dirty&&testForm.testEmail.$invalid"><!--setting testForm.$submitted then the validation will be triggered if you click submit -->
+                <small class="help-block" ng-show="testForm.testEmail.$error.required">It can not be empty</small>
+                <small class="help-block" ng-show="testForm.testEmail.$error.email">Please input valid email</small>
+            </div>
+        </div>
+         <div class="form-group has-success has-feedback">
+            <label>testNumber</label>
+            <input type="number" placeholder="enter number only"name="testNumber" ng-model="form.number" class="form-control" ng-minlength=3 ng-maxlength=10 required />
+            <div class="help-block" ng-show="testForm.testNumber.$dirty&&testForm.testNumber.$invalid">
+                <small class="help-block" ng-show="testForm.testNumber.$error.required">Please input number</small>
+                <small class="help-block" ng-show="testForm.testNumber.$error.minlength">Please input at least 3 numbers</small>
+                <small class="help-block" ng-show="testForm.testNumber.$error.maxlength">Please input no more than 10 numbers</small>
+            </div>
+        </div>
+        <div class="form-group has-success has-feedback">
+            <label>testRegularExpression</label>
+            <input type="text" placeholder="intput phone number like 000-000-0000" ng-pattern="/(^\d{3}-\d{3}-\d{4}$)/"name="testPhoneNumber" ng-model="form.phoneNumber" class="form-control"  required />
+            <div class="help-block" ng-show="testForm.testPhoneNumber.$dirty&&testForm.testPhoneNumber.$invalid">
+                <small class="help-block" ng-show="testForm.testPhoneNumber.$error.required">Please input phone number</small>
+                <small class="help-block" ng-show="testForm.testPhoneNumber.$invalid">Please input valid phone number</small>
+            </div>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+    <script type="text/javascript" src="/formvalidate/validate.js"></script>
+</body>
+
+</html>
